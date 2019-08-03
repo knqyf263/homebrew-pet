@@ -2,14 +2,15 @@
 class Pet < Formula
   desc "Simple command-line snippet manager"
   homepage "https://github.com/knqyf263/pet"
-  version "0.3.5"
+  version "0.3.6"
+  bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/knqyf263/pet/releases/download/v0.3.5/pet_0.3.5_darwin_amd64.tar.gz"
-    sha256 "1eaef7a341a0c15162698375bd7657b328b164d3f21651afcd61418344c81718"
+    url "https://github.com/knqyf263/pet/releases/download/v0.3.6/pet_0.3.6_darwin_amd64.tar.gz"
+    sha256 "10bfe67c3299f51609c7fa8ecf28d22009c29e9a12e6d5541bad297ec83a24e2"
   elsif OS.linux?
-    url "https://github.com/knqyf263/pet/releases/download/v0.3.5/pet_0.3.5_linux_amd64.tar.gz"
-    sha256 "4d20bad49cc10a4eb4fc446db5e15812597ac9ce41f83cf32d4f30ebff7390ab"
+    url "https://github.com/knqyf263/pet/releases/download/v0.3.6/pet_0.3.6_linux_amd64.tar.gz"
+    sha256 "60f977ec23b219551186edab88264a5a3475663007a3cc0f0873785e603335bb"
   end
   
   depends_on "fzf"
