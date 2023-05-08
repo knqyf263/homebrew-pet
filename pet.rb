@@ -7,10 +7,21 @@ class Pet < Formula
   homepage "https://github.com/knqyf263/pet"
   version "0.5.0"
 
+  depends_on "fzf"
+
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/knqyf263/pet/releases/download/v0.5.0/pet_0.5.0_darwin_amd64.tar.gz"
-      sha256 "4fd37e023fb814cff053a8b2b92dab06016f857f1821b9f378c13ba756f19d88"
+      sha256 "9323368559d5dca92aba18be3f9d5b5269d1fa1f14f3b5e7de3b18106b895c15"
+
+      def install
+        bin.install Dir['pet']
+        zsh_completion.install "misc/completions/zsh/_pet"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/knqyf263/pet/releases/download/v0.5.0/pet_0.5.0_darwin_arm64.tar.gz"
+      sha256 "a2084cf5aecbd9cc11948a23264f6d14df2900196f59b9d5bd98c28b716ff63b"
 
       def install
         bin.install Dir['pet']
@@ -22,7 +33,7 @@ class Pet < Formula
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
       url "https://github.com/knqyf263/pet/releases/download/v0.5.0/pet_0.5.0_linux_armv6.tar.gz"
-      sha256 "5a9c5a46b8544a301fa8431dc405397da4343166bc68b5ef135514bbc87b2d51"
+      sha256 "4b40da159fe1d46539e60ee726774918a9c671bc345a1a3c4ac6fd50b7766013"
 
       def install
         bin.install Dir['pet']
@@ -31,7 +42,7 @@ class Pet < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/knqyf263/pet/releases/download/v0.5.0/pet_0.5.0_linux_amd64.tar.gz"
-      sha256 "ee3b605bfa3242ed5b39092e05df29d5beb78d3fe3fa084d9b00714522432405"
+      sha256 "641c4224aeb618eca8c09a04657acfae705b91831c421f36a0660c5679e5c224"
 
       def install
         bin.install Dir['pet']
@@ -40,7 +51,7 @@ class Pet < Formula
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/knqyf263/pet/releases/download/v0.5.0/pet_0.5.0_linux_arm64.tar.gz"
-      sha256 "522de61b9e16dc1a25ccc0ecd6210c1fcfeee40d07f26cc675662f4b97a152f3"
+      sha256 "7cfc3ddc9abc90479e273efc2080cc910bbdf4b59d48bb19c560f72024707721"
 
       def install
         bin.install Dir['pet']
@@ -48,8 +59,6 @@ class Pet < Formula
       end
     end
   end
-
-  depends_on "fzf"
 
   test do
     system "#{bin}/pet"
