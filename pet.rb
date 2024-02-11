@@ -5,23 +5,23 @@
 class Pet < Formula
   desc "Simple command-line snippet manager"
   homepage "https://github.com/knqyf263/pet"
-  version "0.6.0"
+  version "0.6.1"
 
   depends_on "fzf"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/knqyf263/pet/releases/download/v0.6.0/pet_0.6.0_darwin_amd64.tar.gz"
-      sha256 "567208905a7df9293146b60824d22d5a15959bd30e5a8bdafbb50fc30ef0f3de"
+    if Hardware::CPU.arm?
+      url "https://github.com/knqyf263/pet/releases/download/v0.6.1/pet_0.6.1_darwin_arm64.tar.gz"
+      sha256 "8dd18f0ae1dbc9ed22453c4a6f422357660be72a38c8457f486154588e93d24e"
 
       def install
         bin.install Dir['pet']
         zsh_completion.install "misc/completions/zsh/_pet"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/knqyf263/pet/releases/download/v0.6.0/pet_0.6.0_darwin_arm64.tar.gz"
-      sha256 "a8a0ef2b54e0117bcc05fb4c0ce7c558245623be7c78db66498ff1a22e415bde"
+    if Hardware::CPU.intel?
+      url "https://github.com/knqyf263/pet/releases/download/v0.6.1/pet_0.6.1_darwin_amd64.tar.gz"
+      sha256 "810654a45e010606abd0c09f17d96610f60c8fdc65852de8af5c36dc14f43a19"
 
       def install
         bin.install Dir['pet']
@@ -31,9 +31,18 @@ class Pet < Formula
   end
 
   on_linux do
+    if Hardware::CPU.intel?
+      url "https://github.com/knqyf263/pet/releases/download/v0.6.1/pet_0.6.1_linux_amd64.tar.gz"
+      sha256 "168b85af235d54b5c095735ea29061592f81401c3f077508f979c8852d80a211"
+
+      def install
+        bin.install Dir['pet']
+        zsh_completion.install "misc/completions/zsh/_pet"
+      end
+    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/knqyf263/pet/releases/download/v0.6.0/pet_0.6.0_linux_armv6.tar.gz"
-      sha256 "fd9910024a7853a7f78eabbbfcffe32c4fdacc9ba09948274fc32b8295be4e0c"
+      url "https://github.com/knqyf263/pet/releases/download/v0.6.1/pet_0.6.1_linux_armv6.tar.gz"
+      sha256 "110eed2b7fb92720d34064e94c3ad52620bae198fe0873d9affa54d05fd18b7c"
 
       def install
         bin.install Dir['pet']
@@ -41,17 +50,8 @@ class Pet < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/knqyf263/pet/releases/download/v0.6.0/pet_0.6.0_linux_arm64.tar.gz"
-      sha256 "875721c2a3a1772d6a5c846b188c5bdf53650693af8e5f16c46c78861e3aca2f"
-
-      def install
-        bin.install Dir['pet']
-        zsh_completion.install "misc/completions/zsh/_pet"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/knqyf263/pet/releases/download/v0.6.0/pet_0.6.0_linux_amd64.tar.gz"
-      sha256 "76d646750d98eb1dbe9740fbf02a823eec6440610b8fab0fec9ac49f03ccb632"
+      url "https://github.com/knqyf263/pet/releases/download/v0.6.1/pet_0.6.1_linux_arm64.tar.gz"
+      sha256 "6d23e600047d88ff215d09f3cbe2b2fe9662b2c8814dcd37c0ab93763da90ace"
 
       def install
         bin.install Dir['pet']
