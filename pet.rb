@@ -5,14 +5,14 @@
 class Pet < Formula
   desc "Simple command-line snippet manager"
   homepage "https://github.com/knqyf263/pet"
-  version "0.8.1"
+  version "0.8.2"
 
   depends_on "fzf"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/knqyf263/pet/releases/download/v0.8.1/pet_0.8.1_darwin_arm64.tar.gz"
-      sha256 "3e4ade5591854cc1e6c64fed4d0baa782eb43a4ab3a681369020b891f6b4dae2"
+      url "https://github.com/knqyf263/pet/releases/download/v0.8.2/pet_0.8.2_darwin_arm64.tar.gz"
+      sha256 "a3e00a5f89640789464d36fbd7652246bfd350e1ceae2e140baa6044ad8de2c9"
 
       def install
         bin.install Dir['pet']
@@ -20,8 +20,8 @@ class Pet < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/knqyf263/pet/releases/download/v0.8.1/pet_0.8.1_darwin_amd64.tar.gz"
-      sha256 "7d9acb9b889928062f9bc373a177b7583dcbceb74978f61cf27583e621109ff9"
+      url "https://github.com/knqyf263/pet/releases/download/v0.8.2/pet_0.8.2_darwin_amd64.tar.gz"
+      sha256 "aeb128375bee24e19d30edb95fca3919139b52fd1ccccd9d60be93385a725f98"
 
       def install
         bin.install Dir['pet']
@@ -32,8 +32,8 @@ class Pet < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/knqyf263/pet/releases/download/v0.8.1/pet_0.8.1_linux_armv6.tar.gz"
-      sha256 "4439836758872f53182cfdaad71d2430f4e4e121086a91fbc7a26e640595c19e"
+      url "https://github.com/knqyf263/pet/releases/download/v0.8.2/pet_0.8.2_linux_armv6.tar.gz"
+      sha256 "e67fd526657a2054517a691670a8f9b1137f81ff74dbaef24e9a0e120b2bf3d0"
 
       def install
         bin.install Dir['pet']
@@ -41,8 +41,8 @@ class Pet < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/knqyf263/pet/releases/download/v0.8.1/pet_0.8.1_linux_arm64.tar.gz"
-      sha256 "748dde36caf7e6d535fd9743ef99276e3c6561481c71856dd6aeb44a8da0dd5f"
+      url "https://github.com/knqyf263/pet/releases/download/v0.8.2/pet_0.8.2_linux_arm64.tar.gz"
+      sha256 "7b74aa31af5e39f04c7a2125824fd2328f157198dc038c925174cc7fbe6a189a"
 
       def install
         bin.install Dir['pet']
@@ -50,8 +50,8 @@ class Pet < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/knqyf263/pet/releases/download/v0.8.1/pet_0.8.1_linux_amd64.tar.gz"
-      sha256 "7381b1db4a175d621c561b79f0468fbedb0aef47c06eba998e370cf0fd849a25"
+      url "https://github.com/knqyf263/pet/releases/download/v0.8.2/pet_0.8.2_linux_amd64.tar.gz"
+      sha256 "ad378128f66fff68d4adac31dd151d799ed2b67f02a900b876a43fc27161dd1d"
 
       def install
         bin.install Dir['pet']
